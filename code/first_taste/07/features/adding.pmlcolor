@@ -1,0 +1,18 @@
+..F
+
+(::) failed steps (::)
+
+
+expected: "4"
+     got: ""
+
+(compared using ==)
+ (RSpec::Expectations::ExpectationNotMetError)
+./features/step_definitions/calculator_steps.rb:16
+features/adding.feature:6
+
+Failing Scenarios:
+cucumber features/adding.feature:3 # Scenario: Add two numbers
+1 scenario (1 failed)
+3 steps (1 failed, 2 passed)
+0m0.360s

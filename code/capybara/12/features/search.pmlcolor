@@ -1,0 +1,55 @@
+Feature: Search
+
+  Scenario: Find messages by content
+    Given a User has posted the following messages:
+      | content            |
+      | I am making dinner |
+      | I just woke up     |
+      | I am going to work |
+    When I search for "I am"
+    Then the results should be:
+      | content            |
+      | I am making dinner |
+      | I am going to work |
+      Tables were not identical:
+
+        |     content            |
+        | (-) I am making dinner |
+        |     I am going to work |
+        | (+) I am making dinner |
+       (Cucumber::MultilineArgument::DataTable::Different)
+      ./features/step_definitions/search_steps.rb:22
+      features/search.feature:9
+
+  @javascript
+  Scenario: Find messages by content using auto-search
+    Given a User has posted the following messages:
+      | content            |
+      | I am making dinner |
+      | I just woke up     |
+      | I am going to work |
+    When I enter "I am" in the search field
+    Then the results should be:
+      | content            |
+      | I am making dinner |
+      | I am going to work |
+      Tables were not identical:
+
+        |     content            |
+        | (-) I am making dinner |
+        |     I am going to work |
+        | (+) I am making dinner |
+       (Cucumber::MultilineArgument::DataTable::Different)
+      ./features/step_definitions/search_steps.rb:22
+      features/search.feature:23
+      No such file or directory @ rb_sysopen - html-report/70346217591360.png 
+      (Errno::ENOENT)
+      ./features/support/screenshots.rb:3
+
+Failing Scenarios:
+cucumber features/search.feature:2
+cucumber features/search.feature:16
+
+2 scenarios (2 failed)
+6 steps (2 failed, 4 passed)
+0m3.592s

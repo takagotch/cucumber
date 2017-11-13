@@ -1,0 +1,24 @@
+Feature: Search
+
+  Scenario: Find messages by content
+    Given a User has posted the following messages:
+      | content            |
+      | I am making dinner |
+      | I just woke up     |
+      | I am going to work |
+    When I search for "I am"
+    Then the results should be:
+      content
+      I am making dinner
+      SHOULD NOT BE HERE
+      I am going to work
+      | content            |
+      | I am making dinner |
+      | I am going to work |
+      TODO (Cucumber::Pending)
+      ./features/step_definitions/search_steps.rb:14
+      features/search.feature:9
+
+1 scenario (1 pending)
+3 steps (1 pending, 2 passed)
+0m0.405s

@@ -1,0 +1,45 @@
+== 1 CreateAccounts: migrating ================================================
+-- create_table(:accounts)
+   -> 0.0011s
+== 1 CreateAccounts: migrated (0.0012s) =======================================
+
+Starting transaction_processor in ~/message_queues/01 with
+  'ruby lib/transaction_processor.rb'
+transaction processor ready
+Server transaction_processor (94557) is up.
+Feature: Cash Withdrawal
+
+  Scenario: Successful withdrawal from an account in credit
+    Given my account has been credited with $100
+    When I withdraw $20
+    Then $20 should be dispensed
+~/gems/activerecord-5.0.0.1/lib/active_record/core.rb:212:in `find_by!': Couldn't find Account (ActiveRecord::RecordNotFound)
+	from ~/gems/activerecord-5.0.0.1/lib/active_record/dynamic_matchers.rb:65:in `find_by_number!'
+	from ~/gems/activerecord-5.0.0.1/lib/active_record/dynamic_matchers.rb:19:in `method_missing'
+	from lib/transaction_processor.rb:12:in `block (2 levels) in <main>'
+	from ~/databases/02/lib/transaction_queue.rb:21:in `read'
+	from lib/transaction_processor.rb:8:in `block in <main>'
+	from lib/transaction_processor.rb:7:in `loop'
+	from lib/transaction_processor.rb:7:in `<main>'
+    And the balance of my account should be $80
+      
+      expected: 80
+           got: nil
+      
+      (compared using ==)
+       (RSpec::Expectations::ExpectationNotMetError)
+      ./features/step_definitions/account_steps.rb:7
+      ./features/support/async_support.rb:8
+      ./features/support/async_support.rb:6
+      ./features/support/async_support.rb:6
+      ./features/step_definitions/account_steps.rb:7
+      features/cash_withdrawal.feature:6
+
+Failing Scenarios:
+cucumber features/cash_withdrawal.feature:2
+
+1 scenario (1 failed)
+4 steps (1 failed, 3 passed)
+0m2.155s
+Shutting down transaction_processor (94557)
+Server transaction_processor (94557) is shut down

@@ -1,0 +1,37 @@
+Feature: Search
+
+  Scenario: Find messages by content
+    Given a User has posted the following messages:
+      | content            |
+      | I am making dinner |
+      | I just woke up     |
+      | I am going to work |
+    When I search for "I am"
+    Then the results should be:
+      | content            |
+      | I am making dinner |
+      | I am going to work |
+
+  Scenario: Find messages by content using auto-search
+    Given a User has posted the following messages:
+      | content            |
+      | I am making dinner |
+      | I just woke up     |
+      | I am going to work |
+    When I enter "I am" in the search field
+      Undefined step: "I enter "I am" in the search field" (Cucumber::Undefined)
+      features/search.feature:21
+    Then the results should be:
+      | content            |
+      | I am making dinner |
+      | I am going to work |
+
+2 scenarios (1 undefined, 1 passed)
+6 steps (1 skipped, 1 undefined, 4 passed)
+0m0.459s
+
+You can implement step definitions for undefined steps with these snippets:
+
+When(/^I enter "([^"]*)" in the search field$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end

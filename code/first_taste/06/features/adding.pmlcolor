@@ -1,0 +1,10 @@
+..P
+
+(::) pending steps (::)
+
+features/step_definitions/calculator_steps.rb:14:in `/^the output should 
+be "([^"]*)"$/'
+
+1 scenario (1 pending)
+3 steps (1 pending, 2 passed)
+0m0.356s

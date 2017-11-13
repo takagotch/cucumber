@@ -1,0 +1,12 @@
+.
+[["", "1", "2", "3"], ["1", "", "", ""], ["2", "", "", ""], ["3", "", "", ""]]
+P-
+
+(::) pending steps (::)
+
+features/step_definitions/board_steps.rb:5:in `/^player x plays in row 
+(\d+), column (\d+)$/'
+
+1 scenario (1 pending)
+3 steps (1 skipped, 1 pending, 1 passed)
+0m0.017s

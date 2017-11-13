@@ -1,0 +1,17 @@
+Feature: Adding
+
+  Scenario: Add two numbers
+    [32mGiven the input "[32m[1m2+2[0m[0m[32m"[0m
+    [32mWhen the calculator is run[0m
+    [31mThen the output should be "[31m[1m4[0m[0m[31m"[0m
+[31m      expected "/usr/bin/ruby calculator.rb input.txt" to be [0m
+[31m      successfully executed (RSpec::Expectations::ExpectationNotMetError)[0m
+[31m      ./features/step_definitions/calculator_steps.rb:19[0m
+[31m      features/adding.feature:6[0m
+
+[31mFailing Scenarios:[0m
+[31mcucumber features/adding.feature:3[0m
+
+1 scenario ([31m1 failed[0m)
+3 steps ([31m1 failed[0m, [32m2 passed[0m)
+0m0.141s

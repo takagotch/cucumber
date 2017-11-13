@@ -1,0 +1,29 @@
+Feature: Search
+
+  Scenario: Find messages by content
+    Given a User has posted the following messages:
+      | content            |
+      | I am making dinner |
+      | I just woke up     |
+      | I am going to work |
+    When I search for "I am"
+    Then the results should be:
+      | content            |
+      | I am making dinner |
+      | I am going to work |
+      Tables were not identical:
+
+        |     content            |
+        |     I am making dinner |
+        | (+) SHOULD NOT BE HERE |
+        |     I am going to work |
+       (Cucumber::MultilineArgument::DataTable::Different)
+      ./features/step_definitions/search_steps.rb:13
+      features/search.feature:9
+
+Failing Scenarios:
+cucumber features/search.feature:2
+
+1 scenario (1 failed)
+3 steps (1 failed, 2 passed)
+0m0.447s

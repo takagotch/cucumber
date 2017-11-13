@@ -1,0 +1,15 @@
+.ruby: No such file or directory -- calc.rb (LoadError)
+F-
+
+(::) failed steps (::)
+
+Command failed! (RuntimeError)
+./features/step_definitions/calculator_steps.rb:10
+features/adding.feature:5
+
+Failing Scenarios:
+cucumber features/adding.feature:3 # Scenario: Add two numbers
+
+1 scenario (1 failed)
+3 steps (1 failed, 1 skipped, 1 passed)
+0m0.085s

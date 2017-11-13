@@ -1,0 +1,43 @@
+== 1 CreateAccounts: migrating ================================================
+-- create_table(:accounts)
+   -> 0.0014s
+== 1 CreateAccounts: migrated (0.0014s) =======================================
+
+Starting transaction_processor in ~/message_queues/01 with
+  'ruby lib/transaction_processor.rb'
+transaction processor ready
+Server transaction_processor (94557) is up.
+Feature: Cash Withdrawal
+
+  Scenario: Successful withdrawal from an account in credit
+    Given my account has been credited with $100
+    When I withdraw $20
+    Then $20 should be dispensed
+lib/transaction_processor.rb:13:in `block (2 levels) in <main>':
+  undefined local variable or method `balance_store' for main:Object (NameError)
+	from ~/databases/01/lib/transaction_queue.rb:21:in `read'
+	from lib/transaction_processor.rb:10:in `block in <main>'
+	from lib/transaction_processor.rb:9:in `loop'
+	from lib/transaction_processor.rb:9:in `<main>'
+    And the balance of my account should be $80
+      
+      expected: 80
+           got: nil
+      
+      (compared using ==)
+       (RSpec::Expectations::ExpectationNotMetError)
+      ./features/step_definitions/account_steps.rb:7
+      ./features/support/async_support.rb:8
+      ./features/support/async_support.rb:6
+      ./features/support/async_support.rb:6
+      ./features/step_definitions/account_steps.rb:7
+      features/cash_withdrawal.feature:6
+
+Failing Scenarios:
+cucumber features/cash_withdrawal.feature:2
+
+1 scenario (1 failed)
+4 steps (1 failed, 3 passed)
+0m2.141s
+Shutting down transaction_processor (94557)
+Server transaction_processor (94557) is shut down

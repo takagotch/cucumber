@@ -1,0 +1,22 @@
+== 1 CreateAccounts: migrating ================================================
+-- create_table(:accounts)
+   -> 0.0010s
+== 1 CreateAccounts: migrated (0.0010s) =======================================
+
+Starting transaction_processor in ~/message_queues/01 with
+  'ruby lib/transaction_processor.rb'
+transaction processor ready
+Server transaction_processor (94557) is up.
+Feature: Cash Withdrawal
+
+  Scenario: Successful withdrawal from an account in credit
+    Given my account has been credited with $100
+    When I withdraw $20
+    Then $20 should be dispensed
+    And the balance of my account should be $80
+
+1 scenario (1 passed)
+4 steps (4 passed)
+0m2.076s
+Shutting down transaction_processor (94557)
+Server transaction_processor (94557) is shut down

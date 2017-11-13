@@ -1,0 +1,22 @@
+Feature: ruby -e
+
+  Scenario: print something
+    When I run `ruby -e "puts 'hello'"`
+    Then it should pass with:
+      """
+      hello
+      """
+
+1 scenario (1 undefined)
+2 steps (2 undefined)
+0m0.019s
+
+You can implement step definitions for undefined steps with these snippets:
+
+When(/^I run `ruby \-e "([^"]*)"`$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^it should pass with:$/) do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end

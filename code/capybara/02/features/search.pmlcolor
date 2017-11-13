@@ -1,0 +1,32 @@
+Feature: Search
+
+  Scenario: Find messages by content
+    Given a User has posted the following messages:
+      | content            |
+      | I am making dinner |
+      | I just woke up     |
+      | I am going to work |
+    When I search for "I am"
+      Unable to find field "query" (Capybara::ElementNotFound)
+      ./features/step_definitions/search_steps.rb:3
+      features/search.feature:8
+    Then the results should be:
+      | content            |
+      | I am making dinner |
+      | I am going to work |
+      Undefined step: "the results should be:" (Cucumber::Undefined)
+      features/search.feature:9
+
+Failing Scenarios:
+cucumber features/search.feature:2
+
+1 scenario (1 failed)
+3 steps (1 failed, 1 undefined, 1 passed)
+0m0.402s
+
+You can implement step definitions for undefined steps with these snippets:
+
+Then(/^the results should be:$/) do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
